@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*Класс реализует object pool*/
 public class BulletPooler : MonoBehaviour
 {
     [System.Serializable]
@@ -21,7 +21,7 @@ public class BulletPooler : MonoBehaviour
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
 
-    // Start is called before the first frame update
+    // Выделение памяти под объекты при старте и деактивирование
     void Start()
     {
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
@@ -37,6 +37,8 @@ public class BulletPooler : MonoBehaviour
             poolDictionary.Add(pool.tag, objectPool);
         }
     }
+
+    //Спавн объекта из пула 
 
     public GameObject SpawnFromPool(string tag,Vector3 position,Quaternion rotation)
     {

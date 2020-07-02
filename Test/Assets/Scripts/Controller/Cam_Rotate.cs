@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Реализуется поворот башни и поворот корпуса танка за башней 
+ * при угле>20
+ */
 public class Cam_Rotate : MonoBehaviour
 {
     private float sensitivityVert, minimumVert, maximumVert, sensitivityHor;
@@ -25,6 +29,7 @@ public class Cam_Rotate : MonoBehaviour
         CameraRotate();
         TankRotate(CountAngle(gun.transform.forward,tank.transform.forward,Vector3.up));
     }
+    //Поворот камеры вокруг танка
     public void CameraRotate()
     {
         _rotationX -= Input.GetAxis("Mouse Y") * sensitivityVert;
@@ -33,6 +38,7 @@ public class Cam_Rotate : MonoBehaviour
         transform.localEulerAngles = new Vector3(_rotationX, _rotationY, 0);
         gun.transform.rotation = Quaternion.Lerp(gun.transform.rotation, transform.rotation, Time.deltaTime);
     }
+    //Рассчитывается угол между пушкой и платформой
     public Vector3 CountAngle(Vector3 gunForward, Vector3 tankForward, Vector3 ost )
     {
         float single_angle = Vector3.SignedAngle(gunForward, tankForward, ost);
@@ -46,6 +52,7 @@ public class Cam_Rotate : MonoBehaviour
         }
         return new Vector3(0,0,0); 
     }
+    //Доворот платформы
     public void TankRotate(Vector3 angle)
     {
         tank.transform.Rotate(angle);

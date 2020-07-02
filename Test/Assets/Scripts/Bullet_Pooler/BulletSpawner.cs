@@ -55,11 +55,14 @@ public class BulletSpawner : MonoBehaviour
             StartCoroutine("Recharge");
         }
     }
+    //Перезарядка длится recharge_time секунд
     IEnumerator Recharge()
     {
         yield return new WaitForSeconds(recharge_time);
         recharge = false;
     }
+
+    //Выбор типа пули(обычная, взрывная и поджигающая)
     public int ChangeTypeOfBullet()
     {
         if(numOfBullet<=bullets.Keys.Max())
@@ -71,6 +74,7 @@ public class BulletSpawner : MonoBehaviour
             return 1;
         }
     }
+    //Если прицел наведен на край карты, он становится красным и стрелять нельзя
     public bool CanFire()
     {
         RaycastHit hit;

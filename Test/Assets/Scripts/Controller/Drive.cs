@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+ * Скрипт на движение танка и поворот вокруг оси
+ */
 public class Drive : MonoBehaviour
 {
     private Rigidbody rb;

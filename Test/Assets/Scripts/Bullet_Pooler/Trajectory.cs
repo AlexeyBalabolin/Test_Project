@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+ Класс отрисовывает траекторию полета пули
+ */
 public class Trajectory : MonoBehaviour
 {
     public LineRenderer lr;
